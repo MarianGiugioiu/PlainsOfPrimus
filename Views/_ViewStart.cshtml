@@ -1,11 +1,18 @@
 ﻿@{
-    if (this.User.IsInRole("Player"))
+    if (this.User.Identity.IsAuthenticated)
     {
-        Layout = "~/Views/Shared/_LayoutPlayer.cshtml";
+        if (this.User.IsInRole("Player"))
+        {
+            Layout = "~/Views/Shared/_LayoutPlayer.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
     }
     else
     {
-        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
 }

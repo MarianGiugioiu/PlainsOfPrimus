@@ -155,6 +155,7 @@ namespace PlainsOfPrimus.Controllers
                 var context = new ApplicationDbContext();
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
 
@@ -162,15 +163,18 @@ namespace PlainsOfPrimus.Controllers
                 var userManager = new UserManager<ApplicationUser>(userStore);
                 
                 userManager.AddToRole(user.Id, "Player");
+
+                var character = new Character()
+                {
+                    Name = "Name",
+                    UserId = user.Id
+                };
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    context.Characters.Add(character);
+                    context.SaveChanges();
 
                     return RedirectToAction("Index", "Home");
                 }

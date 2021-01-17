@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PlainsOfPrimus.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PlainsOfPrimus.Controllers
 {
@@ -21,13 +22,11 @@ namespace PlainsOfPrimus.Controllers
         }
 
         // GET: Character/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Character character = db.Characters.Find(id);
+            
+            var userId = User.Identity.GetUserId();
+            var character = db.Characters.Include(b => b.Weapon).Where(b => b.UserId == userId).First();
             if (character == null)
             {
                 return HttpNotFound();
@@ -65,7 +64,11 @@ namespace PlainsOfPrimus.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Character character = db.Characters.Find(id);
+            var character = db.Characters.Include(b => b.Weapon).Where(b => b.Id == id).First();
+            /*var characterViewModel = new CharacterViewModel();
+            characterViewModel.Character = character;
+            
+            characterViewModel.Weapons = db.Weapons.ToList();*/
             if (character == null)
             {
                 return HttpNotFound();
@@ -78,13 +81,13 @@ namespace PlainsOfPrimus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Class,Level")] Character character)
+        public ActionResult Edit([Bind(Include = "Id,Name,Class,Level,Weapon")] Character character)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(character).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             return View(character);
         }
@@ -112,7 +115,7 @@ namespace PlainsOfPrimus.Controllers
             Character character = db.Characters.Find(id);
             db.Characters.Remove(character);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details");
         }
 
         protected override void Dispose(bool disposing)

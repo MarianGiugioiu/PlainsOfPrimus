@@ -17,6 +17,7 @@ namespace PlainsOfPrimus.Models
         public Armor Leggings { get; set; }
         public Armor Boots { get; set; }
         public List<Achievement> Achievements { get; set; }
+        public string UserId { get; set; }
 
     }
 }

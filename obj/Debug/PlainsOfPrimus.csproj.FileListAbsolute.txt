@@ -112,3 +112,5 @@ C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Items
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.ArmorUpdate.resources
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Character.resources
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Achievements.resources
+C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.CharacterUser.resources
+C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.CharacterUser1.resources
