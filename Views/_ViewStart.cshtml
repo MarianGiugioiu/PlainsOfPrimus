@@ -1,0 +1,11 @@
+﻿@{
+    if (this.User.IsInRole("Player"))
+    {
+        Layout = "~/Views/Shared/_LayoutPlayer.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+}
