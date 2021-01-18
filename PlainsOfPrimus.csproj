@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202101171928108_Character.Designer.cs">
       <DependentUpon>202101171928108_Character.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101182006116_Entities.cs" />
+    <Compile Include="Migrations\202101182006116_Entities.Designer.cs">
+      <DependentUpon>202101182006116_Entities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achievement.cs" />
@@ -189,6 +193,11 @@
     <Compile Include="Models\CharacterViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyValidations\TypeAttribute.cs" />
+    <Compile Include="Models\MyValidations\TypeClassAttribute.cs" />
+    <Compile Include="Models\MyValidations\UniqueAchievementAttribute.cs" />
+    <Compile Include="Models\MyValidations\UniqueAndOfTypeAttribute.cs" />
+    <Compile Include="Models\MyValidations\UniqueWeaponAttribute.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -292,6 +301,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101171928108_Character.resx">
       <DependentUpon>202101171928108_Character.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101182006116_Entities.resx">
+      <DependentUpon>202101182006116_Entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

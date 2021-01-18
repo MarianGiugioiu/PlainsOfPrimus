@@ -90,6 +90,7 @@ namespace PlainsOfPrimus.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var userId = User.Identity.GetUserId();
             var character = db.Characters
                 .Include(b => b.Weapon)
                 .Include(b => b.Helmet)
@@ -97,7 +98,7 @@ namespace PlainsOfPrimus.Controllers
                 .Include(b => b.Leggings)
                 .Include(b => b.Boots)
                 .Include(b => b.Achievements)
-                .Where(b => b.Id == id).First();
+                .Where(b => b.UserId == userId).First();
             var characterViewModel = new CharacterViewModel();
             characterViewModel.Character = character;
             var achievementIds = new List<int>();
@@ -145,14 +146,22 @@ namespace PlainsOfPrimus.Controllers
         [Route("Character/Edit/{id}")]
         public ActionResult Edit(int id, CharacterViewModel characterViewModel)
         {
-            
-            var character = db.Characters.Include(b => b.Achievements).Where(b => b.Id == id).First();
+
+            var userId = User.Identity.GetUserId();
+            var character = db.Characters.Include(b => b.Achievements).Where(b => b.UserId == userId).First();
+            characterViewModel.Weapons = GetAllWeapons();
+            characterViewModel.Helmets = GetAllArmors("helmet");
+            characterViewModel.Chestplates = GetAllArmors("chestplate");
+            characterViewModel.Leggings = GetAllArmors("leggings");
+            characterViewModel.Boots = GetAllArmors("boots");
+            characterViewModel.Achievements = GetAllAchievements();
             var weapon = db.Weapons.Find(characterViewModel.WeaponId);
             var helmet = db.Armors.Find(characterViewModel.HelmetId);
             var chestplate = db.Armors.Find(characterViewModel.ChestplateId);
             var leggings = db.Armors.Find(characterViewModel.LeggingsId);
             var boots = db.Armors.Find(characterViewModel.BootsId);
             var achievements = new List<Achievement>();
+            
             foreach (int achievementId in characterViewModel.AchievementIds)
             {
 
@@ -163,7 +172,7 @@ namespace PlainsOfPrimus.Controllers
             }
             if (ModelState.IsValid)
             {
-                
+                character.Name = characterViewModel.Character.Name;
                 character.Level = characterViewModel.Character.Level;
                 character.Class = characterViewModel.Character.Class;
                 character.Weapon = weapon;
