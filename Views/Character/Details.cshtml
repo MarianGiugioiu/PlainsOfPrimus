@@ -42,8 +42,54 @@
             @Html.DisplayFor(model => model.Weapon.Name)
         </dd>
 
+        <dt>
+            Helmet
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Helmet.Name)
+        </dd>
+
+        <dt>
+            Chestplate
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chestplate.Name)
+        </dd>
+
+        <dt>
+            Leggings
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leggings.Name)
+        </dd>
+
+        <dt>
+            Boots
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Boots.Name)
+        </dd>
+
+        <dt>
+            Achievements
+        </dt>
+
+        <dd>
+            @{
+                foreach (var achievement in Model.Achievements)
+                {
+                    @Html.ActionLink(achievement.Name, "Details", "Achievement", new { id = achievement.Id }, null) 
+                }
+            }
+        </dd>
+
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
     

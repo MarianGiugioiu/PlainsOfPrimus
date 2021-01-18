@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,7 +9,6 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Profile", "Details", "Character")</li>
-                    <li>@Html.ActionLink("Achievements", "Index", "Achievements")</li>
+                    <li>@Html.ActionLink("Achievements", "Index", "Achievement")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

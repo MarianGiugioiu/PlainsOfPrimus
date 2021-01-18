@@ -106,11 +106,5 @@ C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.CoreCompi
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.CopyComplete
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.dll
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.pdb
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Initial.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.GenerateResource.cache
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Items.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.ArmorUpdate.resources
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Character.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Achievements.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.CharacterUser.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.CharacterUser1.resources
+C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.GenerateResource.cache

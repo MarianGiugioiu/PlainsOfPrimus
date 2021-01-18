@@ -1,4 +1,4 @@
-﻿@model PlainsOfPrimus.Models.Character
+﻿@model PlainsOfPrimus.Models.CharacterViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -7,62 +7,73 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Character", routeValues: new { id = @Model.Character.Id }))
 {
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Character</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Id)
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @*@Html.HiddenFor(b => b.IDFilm)*@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <br />
+    @Html.Label("Character.Name", "Name:")
+    <br />
+    @Html.EditorFor(b => b.Character.Name, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.Character.Name, "", new { @class = "text-danger" })
+    <br />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Class, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Class, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @Html.Label("Character.Class", "Class:")
+    <br />
+    @Html.EditorFor(b => b.Character.Class, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.Character.Class, "", new { @class = "text-danger" })
+    <br />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Level, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @Html.Label("Character.Level", "Level:")
+    <br />
+    @Html.EditorFor(b => b.Character.Level, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.Character.Level, "", new { @class = "text-danger" })
+    <br />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Weapon.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Weapon.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Weapon.Name, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @Html.Label("Weapon", "Weapon:")
+    <br />
+    @Html.DropDownListFor(b => b.WeaponId, new SelectList(Model.Weapons, "Value", "Text"), "Choose a weapon", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.WeaponId, "", new { @class = "text-danger" })
+    <br />
+    <br />
 
+    @Html.Label("Helmet", "Helmet:")
+    <br />
+    @Html.DropDownListFor(b => b.HelmetId, new SelectList(Model.Helmets, "Value", "Text"), "Choose a helmet", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.HelmetId, "", new { @class = "text-danger" })
+    <br />
+    <br />
 
+    @Html.Label("Chestplate", "Chestplate:")
+    <br />
+    @Html.DropDownListFor(b => b.ChestplateId, new SelectList(Model.Chestplates, "Value", "Text"), "Choose a chestplate", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.ChestplateId, "", new { @class = "text-danger" })
+    <br />
+    <br />
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
+    @Html.Label("Leggings", "Leggings:")
+    <br />
+    @Html.DropDownListFor(b => b.LeggingsId, new SelectList(Model.Leggings, "Value", "Text"), "Choose a pair of leggings", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.LeggingsId, "", new { @class = "text-danger" })
+    <br />
+    <br />
 
-<div>
-    @Html.ActionLink("Back to List", "Details")
-</div>
+    @Html.Label("Boots", "Boots:")
+    <br />
+    @Html.DropDownListFor(b => b.BootsId, new SelectList(Model.Boots, "Value", "Text"), "Choose a pair of boots", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.BootsId, "", new { @class = "text-danger" })
+    <br />
+    <br />
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Html.Label("Achievements", "Achievements:")
+    <br />
+    @Html.ListBoxFor(b => b.AchievementIds, new SelectList(Model.Achievements, "Value", "Text"))
+    @Html.ValidationMessageFor(b => b.BootsId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <button class="btn btn-primary" type="submit">Update</button>
 }
