@@ -7,73 +7,147 @@
 <h2>Edit</h2>
 
 
+<div class="myRow">
+    <div class="myColumn">
+        @using (Html.BeginForm(actionName: "Edit", controllerName: "Character", routeValues: new { id = @Model.Character.Id }))
+        {
+            @Html.HttpMethodOverride(HttpVerbs.Put)
+            @*@Html.HiddenFor(b => b.IDFilm)*@
+
+            <br />
+            @Html.Label("Character.Name", "Name:")
+            <br />
+            @Html.EditorFor(b => b.Character.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(b => b.Character.Name, "", new { @class = "text-danger" })
+            <br />
+
+            @Html.Label("Character.Class", "Class:")
+            <br />
+            @Html.EditorFor(b => b.Character.Class, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(b => b.Character.Class, "", new { @class = "text-danger" })
+            <br />
+
+            @Html.Label("Character.Level", "Level:")
+            <br />
+            @Html.EditorFor(b => b.Character.Level, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(b => b.Character.Level, "", new { @class = "text-danger" })
+            <br />
+
+            @Html.Label("Weapon", "Weapon:")
+            <br />
+            @Html.DropDownListFor(b => b.WeaponId, new SelectList(Model.Weapons, "Value", "Text"), "Choose a weapon", new { @class = "form-control" })
+            <br />
+            <br />
+
+            @Html.Label("Helmet", "Helmet:")
+            <br />
+            @Html.DropDownListFor(b => b.HelmetId, new SelectList(Model.Helmets, "Value", "Text"), "Choose a helmet", new { @class = "form-control" })
+            <br />
+            <br />
+
+            @Html.Label("Chestplate", "Chestplate:")
+            <br />
+            @Html.DropDownListFor(b => b.ChestplateId, new SelectList(Model.Chestplates, "Value", "Text"), "Choose a chestplate", new { @class = "form-control" })
+            <br />
+            <br />
+
+            @Html.Label("Leggings", "Leggings:")
+            <br />
+            @Html.DropDownListFor(b => b.LeggingsId, new SelectList(Model.Leggings, "Value", "Text"), "Choose a pair of leggings", new { @class = "form-control" })
+            <br />
+            <br />
+
+            @Html.Label("Boots", "Boots:")
+            <br />
+            @Html.DropDownListFor(b => b.BootsId, new SelectList(Model.Boots, "Value", "Text"), "Choose a pair of boots", new { @class = "form-control" })
+            <br />
+            <br />
+
+            @Html.Label("Achievements", "Achievements:")
+            <br />
+            @Html.ListBoxFor(b => b.AchievementIds, new SelectList(Model.Achievements, "Value", "Text"))
+            <br />
+            <br />
+
+            <button class="btn btn-primary" type="submit">Update</button>
+        }
+    </div>
+    <div class="myColumn">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AttackDamage):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AttackDamage)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ArmorValue):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ArmorValue)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Health):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Health)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Intellect):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Intellect)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Strength):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Strength)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Agility):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Agility)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="myColumn">
+        <div class="inventory-bg">
+            @{
+                if (Model.Character.Weapon != null)
+                {
+                    <div class="weapon"><a href='@Url.Action("Details", "Weapon", new { id = Model.Character.Weapon.Id }, null)'><img width="35rem" src="@Model.Character.Weapon.Image" /></a></div>
+                }
+                if (Model.Character.Helmet != null)
+                {
+                    <div class="helmet"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Helmet.Id }, null)'><img width="35rem" src="@Model.Character.Helmet.Image" /></a></div>
+                }
+                if (Model.Character.Chestplate != null)
+                {
+                    <div class="chestplate"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Chestplate.Id }, null)'><img width="35rem" src="@Model.Character.Chestplate.Image" /></a></div>
+                }
+                if (Model.Character.Boots != null)
+                {
+                    <div class="boots"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Boots.Id }, null)'><img width="35rem" src="@Model.Character.Boots.Image" /></a></div>
+                }
+                if (Model.Character.Leggings != null)
+                {
+                    <div class="leggings"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Leggings.Id }, null)'><img width="35rem" src="@Model.Character.Leggings.Image" /></a></div>
+                }
+            }
 
 
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Character", routeValues: new { id = @Model.Character.Id }))
-{
-    @Html.HttpMethodOverride(HttpVerbs.Put)
-    @*@Html.HiddenFor(b => b.IDFilm)*@
 
-    <br />
-    @Html.Label("Character.Name", "Name:")
-    <br />
-    @Html.EditorFor(b => b.Character.Name, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.Character.Name, "", new { @class = "text-danger" })
-    <br />
+        </div>
+    </div>
+    
+</div>
 
-    @Html.Label("Character.Class", "Class:")
-    <br />
-    @Html.EditorFor(b => b.Character.Class, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.Character.Class, "", new { @class = "text-danger" })
-    <br />
-
-    @Html.Label("Character.Level", "Level:")
-    <br />
-    @Html.EditorFor(b => b.Character.Level, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.Character.Level, "", new { @class = "text-danger" })
-    <br />
-
-    @Html.Label("Weapon", "Weapon:")
-    <br />
-    @Html.DropDownListFor(b => b.WeaponId, new SelectList(Model.Weapons, "Value", "Text"), "Choose a weapon", new { @class = "form-control" })
-    @Html.ValidationMessageFor(b => b.WeaponId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    @Html.Label("Helmet", "Helmet:")
-    <br />
-    @Html.DropDownListFor(b => b.HelmetId, new SelectList(Model.Helmets, "Value", "Text"), "Choose a helmet", new { @class = "form-control" })
-    @Html.ValidationMessageFor(b => b.HelmetId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    @Html.Label("Chestplate", "Chestplate:")
-    <br />
-    @Html.DropDownListFor(b => b.ChestplateId, new SelectList(Model.Chestplates, "Value", "Text"), "Choose a chestplate", new { @class = "form-control" })
-    @Html.ValidationMessageFor(b => b.ChestplateId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    @Html.Label("Leggings", "Leggings:")
-    <br />
-    @Html.DropDownListFor(b => b.LeggingsId, new SelectList(Model.Leggings, "Value", "Text"), "Choose a pair of leggings", new { @class = "form-control" })
-    @Html.ValidationMessageFor(b => b.LeggingsId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    @Html.Label("Boots", "Boots:")
-    <br />
-    @Html.DropDownListFor(b => b.BootsId, new SelectList(Model.Boots, "Value", "Text"), "Choose a pair of boots", new { @class = "form-control" })
-    @Html.ValidationMessageFor(b => b.BootsId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    @Html.Label("Achievements", "Achievements:")
-    <br />
-    @Html.ListBoxFor(b => b.AchievementIds, new SelectList(Model.Achievements, "Value", "Text"))
-    @Html.ValidationMessageFor(b => b.BootsId, "", new { @class = "text-danger" })
-    <br />
-    <br />
-
-    <button class="btn btn-primary" type="submit">Update</button>
-}

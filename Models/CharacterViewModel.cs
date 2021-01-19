@@ -14,6 +14,12 @@ namespace PlainsOfPrimus.Models
         public int ChestplateId { get; set; }
         public int LeggingsId { get; set; }
         public int BootsId { get; set; }
+        public int AttackDamage { get; set; }
+        public int ArmorValue { get; set; }
+        public int Health { get; set; }
+        public int Intellect { get; set; }
+        public int Strength { get; set; }
+        public int Agility { get; set; }
         public int[] AchievementIds { get; set; }
         public IEnumerable<SelectListItem> Weapons { get; set; }
         public IEnumerable<SelectListItem> Helmets { get; set; }

@@ -113,27 +113,61 @@ namespace PlainsOfPrimus.Controllers
             characterViewModel.Leggings = GetAllArmors("leggings");
             characterViewModel.Boots = GetAllArmors("boots");
             characterViewModel.Achievements = GetAllAchievements();
+            int attackDamage = 0;
+            int armorValue = 0;
+            int health = 0;
+            int intellect = 0;
+            int strength = 0;
+            int agility = 0;
 
             if (character.Weapon != null)
             {
+                attackDamage = character.Weapon.AttackDamage;
                 characterViewModel.WeaponId = character.Weapon.Id;
             }
             if (character.Helmet != null)
             {
                 characterViewModel.HelmetId = character.Helmet.Id;
+                armorValue += character.Helmet.ArmorValue;
+                health += character.Helmet.Health;
+                intellect += character.Helmet.Intellect;
+                strength += character.Helmet.Strength;
+                agility += character.Helmet.Agility;
             }
             if (character.Chestplate != null)
             {
                 characterViewModel.ChestplateId = character.Chestplate.Id;
+                armorValue += character.Chestplate.ArmorValue;
+                health += character.Chestplate.Health;
+                intellect += character.Chestplate.Intellect;
+                strength += character.Chestplate.Strength;
+                agility += character.Chestplate.Agility;
             }
             if (character.Leggings != null)
             {
                 characterViewModel.LeggingsId = character.Leggings.Id;
+                armorValue += character.Leggings.ArmorValue;
+                health += character.Leggings.Health;
+                intellect += character.Leggings.Intellect;
+                strength += character.Leggings.Strength;
+                agility += character.Leggings.Agility;
             }
             if (character.Boots != null)
             {
                 characterViewModel.BootsId = character.Boots.Id;
+                armorValue += character.Boots.ArmorValue;
+                health += character.Boots.Health;
+                intellect += character.Boots.Intellect;
+                strength += character.Boots.Strength;
+                agility += character.Boots.Agility;
             }
+
+            characterViewModel.AttackDamage = attackDamage;
+            characterViewModel.ArmorValue = armorValue;
+            characterViewModel.Health = health;
+            characterViewModel.Intellect = intellect;
+            characterViewModel.Strength = strength;
+            characterViewModel.Agility = agility;
 
             if (character == null)
             {
