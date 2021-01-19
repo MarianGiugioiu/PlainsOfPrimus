@@ -34,5 +34,6 @@ namespace PlainsOfPrimus.Models
         public DbSet<Armor> Armors { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
     }
 }
