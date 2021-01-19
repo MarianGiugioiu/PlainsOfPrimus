@@ -5,8 +5,16 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+}
+
+.body-background {
+    background: url("https://www.trueachievements.com/customimages/071339.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +30,5 @@ select,
 textarea {
     max-width: 280px;
 }
+
+

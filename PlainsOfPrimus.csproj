@@ -177,13 +177,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101171928108_Character.cs" />
-    <Compile Include="Migrations\202101171928108_Character.Designer.cs">
-      <DependentUpon>202101171928108_Character.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101182006116_Entities.cs" />
-    <Compile Include="Migrations\202101182006116_Entities.Designer.cs">
-      <DependentUpon>202101182006116_Entities.cs</DependentUpon>
+    <Compile Include="Migrations\202101190939371_Entities.cs" />
+    <Compile Include="Migrations\202101190939371_Entities.Designer.cs">
+      <DependentUpon>202101190939371_Entities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -299,11 +295,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101171928108_Character.resx">
-      <DependentUpon>202101171928108_Character.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101182006116_Entities.resx">
-      <DependentUpon>202101182006116_Entities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101190939371_Entities.resx">
+      <DependentUpon>202101190939371_Entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

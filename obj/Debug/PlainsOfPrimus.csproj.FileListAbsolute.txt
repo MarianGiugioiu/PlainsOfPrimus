@@ -106,8 +106,6 @@ C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.CoreCompi
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.CopyComplete
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.dll
 C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.pdb
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Character.resources
-C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.GenerateResource.cache
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\bin\PlainsOfPrimus.dll.config
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\bin\PlainsOfPrimus.dll
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\bin\PlainsOfPrimus.pdb
@@ -219,3 +217,5 @@ C:\Users\Marian\Desktop\azx\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.CopyC
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.dll
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.pdb
 C:\Users\Marian\Desktop\azx\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Entities.resources
+C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.Migrations.Entities.resources
+C:\Users\Marian\Desktop\PlainsOfPrimus\obj\Debug\PlainsOfPrimus.csproj.GenerateResource.cache

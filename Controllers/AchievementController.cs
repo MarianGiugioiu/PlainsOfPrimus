@@ -27,7 +27,7 @@ namespace PlainsOfPrimus.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Achievement achievement = db.Achievements.Find(id);
+            Achievement achievement = db.Achievements.Include(b=>b.Characters).Where(b => b.Id == id).First();
             if (achievement == null)
             {
                 return HttpNotFound();

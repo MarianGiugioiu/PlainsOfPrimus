@@ -7,12 +7,12 @@ namespace PlainsOfPrimus.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.Achievements", "Requirements", c => c.String(maxLength: 50));
+            DropColumn("dbo.Weapons", "Type");
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Achievements", "Requirements", c => c.String());
+            AddColumn("dbo.Weapons", "Type", c => c.String());
         }
     }
 }

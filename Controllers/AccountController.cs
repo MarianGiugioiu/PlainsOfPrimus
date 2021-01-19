@@ -161,20 +161,35 @@ namespace PlainsOfPrimus.Controllers
 
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
-                
-                userManager.AddToRole(user.Id, "Player");
 
-                var character = new Character()
+                
+                bool admin = false;
+                if (user.Email.Contains("@popdev.com"))
                 {
-                    Name = "Name",
-                    UserId = user.Id
-                };
+                    admin = true;
+                    userManager.AddToRole(user.Id, "Admin");
+                } 
+                else
+                { 
+                    userManager.AddToRole(user.Id, "Player");
+
+                }
+                
+                
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    context.Characters.Add(character);
-                    context.SaveChanges();
+                    if (!admin)
+                    {
+                        var character = new Character()
+                        {
+                            Level = 0,
+                            Class = "warrior",
+                            UserId = user.Id
+                        };
+                        context.Characters.Add(character);
+                        context.SaveChanges();
+                    }
 
                     return RedirectToAction("Index", "Home");
                 }

@@ -7,13 +7,13 @@ namespace PlainsOfPrimus.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Character : IMigrationMetadata
+    public sealed partial class Entities : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Character));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Entities));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101171928108_Character"; }
+            get { return "202101190939371_Entities"; }
         }
         
         string IMigrationMetadata.Source

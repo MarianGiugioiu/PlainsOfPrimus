@@ -82,7 +82,7 @@
             @{
                 foreach (var achievement in Model.Achievements)
                 {
-                    @Html.ActionLink(achievement.Name, "Details", "Achievement", new { id = achievement.Id }, null) 
+                    @Html.ActionLink(achievement.Name + ";  ", "Details", "Achievement", new { id = achievement.Id }, null) 
                 }
             }
         </dd>

@@ -43,16 +43,15 @@
         </td>
         
         @{
-            if (this.User.Identity.IsAuthenticated)
+            if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
             {
-                if (this.User.IsInRole("Admin"))
-                {
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                }
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+                
             } else
             {  
                 <td>
