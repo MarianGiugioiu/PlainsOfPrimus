@@ -12,7 +12,6 @@
         @using (Html.BeginForm(actionName: "Edit", controllerName: "Character", routeValues: new { id = @Model.Character.Id }))
         {
             @Html.HttpMethodOverride(HttpVerbs.Put)
-            @*@Html.HiddenFor(b => b.IDFilm)*@
 
             <br />
             @Html.Label("Character.Name", "Name:")
@@ -153,9 +152,6 @@
             </div>
             <div class="rightColumn"></div>
            
-
-
-
         </div>
     </div>
     

@@ -16,10 +16,7 @@ namespace PlainsOfPrimus.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Character
-        public ActionResult Index()
-        {
-            return View(db.Characters.ToList());
-        }
+        
 
         // GET: Character/Details/5
         public ActionResult Details()
@@ -195,15 +192,18 @@ namespace PlainsOfPrimus.Controllers
             var leggings = db.Armors.Find(characterViewModel.LeggingsId);
             var boots = db.Armors.Find(characterViewModel.BootsId);
             var achievements = new List<Achievement>();
-            
-            foreach (int achievementId in characterViewModel.AchievementIds)
+            if (characterViewModel.AchievementIds != null)
             {
+                foreach (int achievementId in characterViewModel.AchievementIds)
+                {
 
-                var achievement = db.Achievements.Find(achievementId);
-                achievements.Add(achievement);
+                    var achievement = db.Achievements.Find(achievementId);
+                    achievements.Add(achievement);
 
 
+                }
             }
+            
             if (ModelState.IsValid)
             {
                 character.Name = characterViewModel.Character.Name;

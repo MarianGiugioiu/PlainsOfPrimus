@@ -15,9 +15,16 @@ namespace PlainsOfPrimus.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Weapon
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Weapons.ToList());
+            var weapons = from m in db.Weapons
+                               select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                weapons = weapons.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(weapons.ToList());
         }
 
         // GET: Weapon/Details/5

@@ -6,9 +6,25 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<form asp-controller="Weapon" asp-action="Index">
+    <p>
+        Name: <input type="text" name="SearchString" />
+        <input placeholder="Titlu Nota" type="submit" value="Filter" />
+    </p>
+</form>
+
+@{
+    if (this.User.Identity.IsAuthenticated)
+    {
+        if (this.User.IsInRole("Admin"))
+        {
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        }
+    }
+}
+
 <table class="table">
     <tr>
         <th>
@@ -26,39 +42,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            <img src=@Html.DisplayFor(modelItem => item.Image) width="20" height="20"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AttackDamage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SpecialBonus)
-            
-        </td>
-        @{
-            if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
-            {
-                
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-                
-            } else
-            {  
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <img src=@Html.DisplayFor(modelItem => item.Image) width="20" height="20" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttackDamage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialBonus)
+
+            </td>
+            @{
+                if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
+                {
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+
+                }
+                else
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </td>
+                }
             }
-        }
-    </tr>
-}
+        </tr>
+    }
 
 </table>

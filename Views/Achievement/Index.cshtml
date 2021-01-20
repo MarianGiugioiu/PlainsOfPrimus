@@ -5,6 +5,14 @@
 }
 
 <h2>Index</h2>
+
+<form asp-controller="Achievement" asp-action="Index">
+    <p>
+        Name: <input type="text" name="SearchString" />
+        <input placeholder="Titlu Nota" type="submit" value="Filter" />
+    </p>
+</form>
+
 @{ 
     if (this.User.Identity.IsAuthenticated)
     {
@@ -16,6 +24,7 @@
         }
     }
 }
+
 <table class="table">
     <tr>
         <th>

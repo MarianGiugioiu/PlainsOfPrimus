@@ -15,9 +15,16 @@ namespace PlainsOfPrimus.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Achievement
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Achievements.ToList());
+            var achievements = from m in db.Achievements
+                           select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                achievements = achievements.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(achievements.ToList());
         }
 
         // GET: Achievement/Details/5
