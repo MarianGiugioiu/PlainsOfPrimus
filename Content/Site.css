@@ -25,18 +25,57 @@
 
 .inventory-bg {
     background-image: url("../Photos/equipment.jpg");
-    width: 10rem;
+    display: flex;
+    flex-direction:row;
+    width: 11rem;
     height: 18rem;
 }
 
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.middleColumn {
+    display: flex;
+    flex-direction: column;
+}
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+}
+
 .weapon {
-    position: absolute;
-    padding-left: 0.3rem;
-    padding-top: 3.5rem;
-    width: 3rem;
+    padding-left: 1%;
+    padding-top: 200%;
+    height: 3rem;
 }
 
 .helmet {
+    padding-left: 10%;
+    padding-top: 5%;
+    height: 3rem;
+}
+
+.chestplate {
+    padding-left: 10%;
+    padding-top: 4%;
+    height: 3rem;
+}
+
+.leggings {
+    padding-left: 10%;
+    padding-top: 5%;
+    height: 3rem;
+}
+
+.boots {
+    padding-left: 10%;
+    padding-top: 160%;
+    height: 3rem;
+}
+
+/*.helmet {
     position: absolute;
     padding-left: 4rem;
     padding-top: 0.5rem;
@@ -62,7 +101,7 @@
     padding-left: 4rem;
     padding-top: 15rem;
     height: 3rem;
-}
+}*/
 
 .body-background {
     background: url("https://www.trueachievements.com/customimages/071339.jpg") no-repeat center center fixed;

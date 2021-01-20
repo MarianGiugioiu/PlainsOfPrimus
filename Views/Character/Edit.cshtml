@@ -120,29 +120,39 @@
         </dl>
     </div>
     <div class="myColumn">
+        
         <div class="inventory-bg">
-            @{
-                if (Model.Character.Weapon != null)
-                {
-                    <div class="weapon"><a href='@Url.Action("Details", "Weapon", new { id = Model.Character.Weapon.Id }, null)'><img width="35rem" src="@Model.Character.Weapon.Image" /></a></div>
+            <div class="leftColumn">
+                @{
+                    if (Model.Character.Weapon != null)
+                    {
+                        <div class="weapon"><a href='@Url.Action("Details", "Weapon", new { id = Model.Character.Weapon.Id }, null)'><img width="35rem" src="@Model.Character.Weapon.Image" /></a></div>
+                    }
                 }
-                if (Model.Character.Helmet != null)
-                {
-                    <div class="helmet"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Helmet.Id }, null)'><img width="35rem" src="@Model.Character.Helmet.Image" /></a></div>
+            </div>
+            <div class="middleColumn">
+                @{
+                    if (Model.Character.Helmet != null)
+                    {
+                        <div class="helmet"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Helmet.Id }, null)'><img width="35rem" src="@Model.Character.Helmet.Image" /></a></div>
+                    }
+                    if (Model.Character.Chestplate != null)
+                    {
+                        <div class="chestplate"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Chestplate.Id }, null)'><img width="35rem" src="@Model.Character.Chestplate.Image" /></a></div>
+                    }
+
+                    if (Model.Character.Leggings != null)
+                    {
+                        <div class="leggings"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Leggings.Id }, null)'><img width="35rem" src="@Model.Character.Leggings.Image" /></a></div>
+                    }
+                    if (Model.Character.Boots != null)
+                    {
+                        <div class="boots"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Boots.Id }, null)'><img width="35rem" src="@Model.Character.Boots.Image" /></a></div>
+                    }
                 }
-                if (Model.Character.Chestplate != null)
-                {
-                    <div class="chestplate"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Chestplate.Id }, null)'><img width="35rem" src="@Model.Character.Chestplate.Image" /></a></div>
-                }
-                if (Model.Character.Boots != null)
-                {
-                    <div class="boots"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Boots.Id }, null)'><img width="35rem" src="@Model.Character.Boots.Image" /></a></div>
-                }
-                if (Model.Character.Leggings != null)
-                {
-                    <div class="leggings"> <a href='@Url.Action("Details", "Armor", new { id = Model.Character.Leggings.Id }, null)'><img width="35rem" src="@Model.Character.Leggings.Image" /></a></div>
-                }
-            }
+            </div>
+            <div class="rightColumn"></div>
+           
 
 
 

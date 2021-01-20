@@ -6,90 +6,129 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Character</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="myRow">
+    <div class="myColumn">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Class)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Class)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Class)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Class)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Level)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Level)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Level)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Level)
+            </dd>
 
-        <dt>
-            Weapon
-        </dt>
+            <dt>
+                Weapon
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Weapon.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Weapon.Name)
+            </dd>
 
-        <dt>
-            Helmet
-        </dt>
+            <dt>
+                Helmet
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Helmet.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Helmet.Name)
+            </dd>
 
-        <dt>
-            Chestplate
-        </dt>
+            <dt>
+                Chestplate
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Chestplate.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Chestplate.Name)
+            </dd>
 
-        <dt>
-            Leggings
-        </dt>
+            <dt>
+                Leggings
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Leggings.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Leggings.Name)
+            </dd>
 
-        <dt>
-            Boots
-        </dt>
+            <dt>
+                Boots
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Boots.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Boots.Name)
+            </dd>
 
-        <dt>
-            Achievements
-        </dt>
+            <dt>
+                Achievements
+            </dt>
 
-        <dd>
-            @{
-                foreach (var achievement in Model.Achievements)
-                {
-                    @Html.ActionLink(achievement.Name + ";  ", "Details", "Achievement", new { id = achievement.Id }, null) 
+            <dd>
+                @{
+                    foreach (var achievement in Model.Achievements)
+                    {
+                        @Html.ActionLink(achievement.Name + ";  ", "Details", "Achievement", new { id = achievement.Id }, null)
+                    }
                 }
-            }
-        </dd>
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+
+    <div class="myColumn">
+
+        <div class="inventory-bg">
+            <div class="leftColumn">
+                @{
+                    if (Model.Weapon != null)
+                    {
+                        <div class="weapon"><a href='@Url.Action("Details", "Weapon", new { id = Model.Weapon.Id }, null)'><img width="35rem" src="@Model.Weapon.Image" /></a></div>
+                    }
+                }
+            </div>
+            <div class="middleColumn">
+                @{
+                    if (Model.Helmet != null)
+                    {
+                        <div class="helmet"> <a href='@Url.Action("Details", "Armor", new { id = Model.Helmet.Id }, null)'><img width="35rem" src="@Model.Helmet.Image" /></a></div>
+                    }
+                    if (Model.Chestplate != null)
+                    {
+                        <div class="chestplate"> <a href='@Url.Action("Details", "Armor", new { id = Model.Chestplate.Id }, null)'><img width="35rem" src="@Model.Chestplate.Image" /></a></div>
+                    }
+
+                    if (Model.Leggings != null)
+                    {
+                        <div class="leggings"> <a href='@Url.Action("Details", "Armor", new { id = Model.Leggings.Id }, null)'><img width="35rem" src="@Model.Leggings.Image" /></a></div>
+                    }
+                    if (Model.Boots != null)
+                    {
+                        <div class="boots"> <a href='@Url.Action("Details", "Armor", new { id = Model.Boots.Id }, null)'><img width="35rem" src="@Model.Boots.Image" /></a></div>
+                    }
+                }
+            </div>
+            <div class="rightColumn"></div>
+
+
+
+
+        </div>
+    </div>
 </div>
-
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
     
