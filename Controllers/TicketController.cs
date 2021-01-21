@@ -123,7 +123,7 @@ namespace PlainsOfPrimus.Controllers
             Ticket ticket = db.Tickets.Find(id);
             db.Tickets.Remove(ticket);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexPlayer",new { id = id});
         }
 
         protected override void Dispose(bool disposing)
